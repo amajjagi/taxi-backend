@@ -21,9 +21,9 @@ app.get('/buses',(req, res) => {
 });
 
 
-
-var port = process.env.port ||4200;
-
-app.listen(port);
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`Our app is running on port ${ PORT }`);
+})
 
 module.export = app;
