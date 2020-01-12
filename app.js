@@ -20,7 +20,7 @@ app.set('views','ejs');
 app.use(bodyparser.json());
 
 app.get('/cities',(req, res) => {
-  getJSON('https://api.myjson.com/bins/1f7huy', function(error, response){
+  getJSON('https://api.myjson.com/bins/18h93q', function(error, response){
     res.send(response);
 })
 });
