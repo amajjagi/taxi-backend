@@ -35,7 +35,13 @@ app.get('/booking-details',(req, res) => {
     var to = req.query.to;
 response.forEach((value) => {
   if(value.to === to){
-    value['price'] = value.distance * 15;
+    var price;
+    if(value.distance<= 300){
+      price =  300 * 15;
+    }else{
+      price = value.distance * 15;
+    }
+    value['price']= price+300;
     res.send(value);
   }
 });
