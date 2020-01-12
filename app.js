@@ -40,9 +40,9 @@ console.log('datepicker',datepicker);
   
 });
 
-app.listen(8080 || 5000, function() {
-    console.log('Server is listening on port 8080')
-    
-});
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`Our app is running on port ${ PORT }`);
+})
 
 module.export = app;
