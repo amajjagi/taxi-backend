@@ -4,7 +4,12 @@ var app = express();
 const bodyparser = require('body-parser');
 const db = require('./mysql2/database');
 var getJSON = require('get-json')
-
+app.use(function (req, res, next) {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+  res.setHeader('Access-Control-Allow-Methods', 'POST, GET, PATCH, DELETE, OPTIONS');
+  next();
+});
 app.use(express.json())
 
 app.use(express.static('./forms'))
