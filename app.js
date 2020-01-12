@@ -14,14 +14,25 @@ app.set('views','ejs');
 
 app.use(bodyparser.json());
 
-app.get('/buses',(req, res) => {
-  getJSON('https://api.myjson.com/bins/18h93q', function(error, response){
+app.get('/cities',(req, res) => {
+  getJSON('https://api.myjson.com/bins/1f7huy', function(error, response){
     res.send(response);
 })
 });
 
+app.get('/booking-details',(req, res) => {
+  getJSON('https://api.myjson.com/bins/1f7huy', function(error, response){
+    var to = req.query.to;
+response.forEach((value) => {
+  if(value.to === to){
+    value['price'] = value.distance * 15;
+    res.send(value);
+  }
+});
+})
+});
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 2300;
 app.listen(PORT, () => {
     console.log(`Our app is running on port ${ PORT }`);
 })
